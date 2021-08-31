@@ -1,8 +1,12 @@
 from django.contrib import admin
 
-from .models import Book
+from .models import Book, Author, Address, Country
 
 # Register your models here.
+
+
+class AuthorAdmin(admin.ModelAdmin):
+    list_filter = ("first_name", "last_name")
 
 
 class BookAdmin(admin.ModelAdmin):
@@ -12,3 +16,6 @@ class BookAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Book, BookAdmin)
+admin.site.register(Author, AuthorAdmin)
+admin.site.register(Address)
+admin.site.register(Country)
